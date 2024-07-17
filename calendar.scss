@@ -1,0 +1,30 @@
+body {
+  width: 100vw;
+}
+
+.calendar {
+  width: calc($size * 7 + $flex-gap * 6);
+  display: flex;
+  flex-wrap: wrap;
+  gap: $flex-gap;
+  padding-top: 100px;
+  margin: 0 auto;
+
+  &__day {
+    width: $size;
+    height: $size;
+    border: 1px solid $black;
+    background-color: $grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @for $dayOfMonth from 1 to 32 {
+      &:nth-child(#{$dayOfMonth})::after {
+        content: '#{$dayOfMonth}';
+        font-size: 30px;
+        font-weight: bold;
+      }
+    }
+  }
+}
